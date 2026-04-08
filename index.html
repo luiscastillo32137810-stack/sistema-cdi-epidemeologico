@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas CDI - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <h2>CDI Central</h2>
+        <ul>
+            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('registro')">Registro de Paciente</a></li>
+            <li><a href="#" onclick="showSection('historico')">Histórico</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        
+        <section id="dashboard" class="active">
+            <header>
+                <h1>Panel de Estadísticas Epidemiológicas</h1>
+            </header>
+            
+            <div class="cards-container">
+                <div class="card"><h3>Total Casos</h3><p id="total-casos">0</p></div>
+                <div class="card"><h3>Virus Semanal</h3><p>Gripe Común</p></div>
+                <div class="card warning"><h3>Alertas</h3><p>2 Activas</p></div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-box">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="registro">
+            <header><h1>Registro de Nuevo Caso</h1></header>
+            <form id="form-paciente" class="warm-form">
+                <div class="form-group">
+                    <label>Nombre del Paciente</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label>Categoría</label>
+                    <select id="categoria" required>
+                        <option value="Virus">Virus</option>
+                        <option value="Epidemia">Epidemia</option>
+                        <option value="Enfermedad">Enfermedad Crónica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Diagnóstico Específico</label>
+                    <input type="text" id="diagnostico" placeholder="Ej. Dengue, COVID-19" required>
+                </div>
+                <button type="submit" class="btn-save">Guardar Registro</button>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
